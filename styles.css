@@ -280,3 +280,18 @@ footer {
 .toggle-icon.active {
     transform: rotate(180deg);
 } 
+.contact_div{
+    background-color: transparent;
+    display:flex;
+    justify-content: space-around;
+}
+.contact_div > div{
+    background-color: #cacaca;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+}
+#contact_us{
+    background-color: #e2e0e0;
+    justify-content: space-around;
+    padding: 1rem 10rem;
+}
