@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Автосервис</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #e9ecef;
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .faq-answer.active {
+            padding: 1rem;
+            max-height: 500px;
+        }
+
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Автосервис</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Главная</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="reviews.html">Отзывы</a></li>
+            <li><a href="portfolio.html">Портфолио</a></li>
+            <li class="dropdown">
+                <a href="#">Поддержка</a>
+                <div class="dropdown-content">
+                    <a href="faq.html">FAQ</a>
+                    <a href="contact.html">Контакты</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2>Часто задаваемые вопросы</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какие услуги вы предоставляете?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Мы предоставляем полный спектр услуг по уходу за автомобилем, включая мойку, полировку, химчистку салона и нанесение защитных покрытий.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Сколько времени занимает полная мойка автомобиля?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Полная мойка автомобиля занимает от 1 до 2 часов, в зависимости от степени загрязнения и выбранных дополнительных услуг.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какие защитные покрытия вы используете?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Мы работаем с проверенными производителями защитных покрытий, включая керамические покрытия, жидкое стекло и антигравийные пленки.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как часто нужно проводить химчистку салона?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Рекомендуется проводить химчистку салона каждые 6-12 месяцев, в зависимости от интенсивности использования автомобиля.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Предоставляете ли вы гарантию на свои услуги?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Да, мы предоставляем гарантию на все наши услуги. Срок гарантии зависит от типа услуги и используемых материалов.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Автосервис. Все права защищены.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.toggle-icon');
+                
+                question.addEventListener('click', () => {
+                    // Закрываем все остальные ответы
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            const otherIcon = otherItem.querySelector('.toggle-icon');
+                            otherAnswer.classList.remove('active');
+                            otherIcon.classList.remove('active');
+                        }
+                    });
+                    
+                    // Переключаем текущий ответ
+                    answer.classList.toggle('active');
+                    icon.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
