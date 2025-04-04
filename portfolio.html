@@ -5,6 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .gallery-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            margin: auto;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            padding: 16px;
+            user-select: none;
+            z-index: 1001;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -33,10 +131,114 @@
             <h2>Наше Портфолио</h2>
             <p>Изучите наши прошлые проекты и посмотрите нашу работу в действии.</p>
         </section>
+
+        <section class="gallery-container">
+            <div class="gallery" id="gallery">
+                <!-- Фотографии будут добавлены динамически -->
+            </div>
+        </section>
     </main>
+
+    <div class="modal">
+        <span class="close">&times;</span>
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
 
     <footer>
         <p>&copy; 2024 Мой Сайт. Все права защищены.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.getElementById('gallery');
+            const modal = document.querySelector('.modal');
+            const modalImg = document.getElementById('modal-img');
+            const closeBtn = document.querySelector('.close');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
+            let images = [];
+
+            // Массив с именами файлов изображений
+            const imageFiles = [
+                '68973502_800x600.jpg',
+                'og_og_1686559074223988877.jpg',
+                'ff310d29bd0e893189d704561a49962d.jpg',
+                'загруженное.jpeg',
+                '1723466721_new_preview_5cf56830a0d6ecb858716fee8b748147.jpg',
+                '1684320950_new_preview_opasni9.jpg'
+            ];
+
+            // Функция для загрузки изображений
+            function loadImages() {
+                imageFiles.forEach((filename, index) => {
+                    const img = document.createElement('img');
+                    img.src = 'images/' + filename;
+                    img.alt = 'Работа ' + (index + 1);
+                    
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.appendChild(img);
+                    gallery.appendChild(galleryItem);
+                    
+                    images.push(img);
+                });
+
+                setupGallery();
+            }
+
+            function setupGallery() {
+                const galleryItems = document.querySelectorAll('.gallery-item img');
+                
+                galleryItems.forEach((img, index) => {
+                    img.addEventListener('click', () => {
+                        modal.style.display = 'block';
+                        modalImg.src = img.src;
+                        currentIndex = index;
+                    });
+                });
+
+                closeBtn.addEventListener('click', () => {
+                    modal.style.display = 'none';
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                    modalImg.src = galleryItems[currentIndex].src;
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % galleryItems.length;
+                    modalImg.src = galleryItems[currentIndex].src;
+                });
+
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+
+                // Добавляем обработку клавиш клавиатуры
+                document.addEventListener('keydown', (e) => {
+                    if (modal.style.display === 'block') {
+                        if (e.key === 'Escape') {
+                            modal.style.display = 'none';
+                        } else if (e.key === 'ArrowLeft') {
+                            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                            modalImg.src = galleryItems[currentIndex].src;
+                        } else if (e.key === 'ArrowRight') {
+                            currentIndex = (currentIndex + 1) % galleryItems.length;
+                            modalImg.src = galleryItems[currentIndex].src;
+                        }
+                    }
+                });
+            }
+
+            // Загружаем изображения при загрузке страницы
+            loadImages();
+        });
+    </script>
 </body>
 </html> 
