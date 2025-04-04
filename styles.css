@@ -292,8 +292,8 @@ footer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
+    gap: 15px;
+    padding: 10px;
 }
 .contact_div > div{
     background-color: #cacaca;
@@ -316,7 +316,7 @@ footer {
 
 #contact_us {
     background-color: #e2e0e0;
-    padding: 2rem;
+    padding: 3rem;
     text-align: center;
     margin-bottom: 20px;
 }
