@@ -1,16 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&family=Roboto:wght@300;400;500&family=Dela+Gothic+One&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+h1, h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 700;
 }
 
 header {
@@ -282,16 +289,77 @@ footer {
 } 
 .contact_div{
     background-color: transparent;
-    display:flex;
+    display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
 .contact_div > div{
     background-color: #cacaca;
-    padding: 1rem 3rem;
+    padding: 1.5rem;
     border-radius: 5px;
+    flex: 1;
+    min-width: 250px;
 }
-#contact_us{
+.contact_div h2 {
+    font-family: 'Playfair Display SC', serif;
+    font-weight: 900;
+    margin-top: 0;
+}
+
+.contact_div p, 
+.contact_div ul {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+#contact_us {
     background-color: #e2e0e0;
-    justify-content: space-around;
-    padding: 1rem 10rem;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#contact_us h2 {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+#contact_us p {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 0;
+}
+#contact_us li{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+/* Навигация */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    background-color: #f5f5f5;
+    padding: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
 }
