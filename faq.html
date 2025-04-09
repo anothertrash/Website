@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Автосервис</title>
+    <title>FAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         .faq-container {
@@ -37,17 +38,22 @@
             padding: 0;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             background-color: white;
+            transform: translateY(-20px);
+            opacity: 0;
         }
 
         .faq-answer.active {
             padding: 1rem;
             max-height: 500px;
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .toggle-icon {
-            transition: transform 0.3s ease;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
         }
 
         .toggle-icon.active {
@@ -64,13 +70,13 @@
             <li><a href="home.html">Главная</a></li>
             <li><a href="about.html">О компании</a></li>
             <li><a href="services.html">Услуги</a></li>
-            <li><a href="reviews.html">Отзывы</a></li>
             <li><a href="portfolio.html">Портфолио</a></li>
+            <li><a href="reviews.html">Отзывы</a></li>
             <li class="dropdown">
                 <a href="#">Поддержка</a>
                 <div class="dropdown-content">
-                    <a href="faq.html">FAQ</a>
                     <a href="contact.html">Контакты</a>
+                    <a href="faq.html">FAQ</a>
                 </div>
             </li>
         </ul>
@@ -85,34 +91,25 @@
                         <span class="toggle-icon">▼</span>
                     </div>
                     <div class="faq-answer">
-                        Мы предоставляем полный спектр услуг по уходу за автомобилем, включая мойку, полировку, химчистку салона и нанесение защитных покрытий.
+                        Мы предоставляем полный спектр услуг по уходу за автомобилем, включая мойку, полировку, химчистку салона, защиту кузова и многое другое.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Сколько времени занимает полная мойка автомобиля?</span>
+                        <span>Сколько времени занимает полная обработка автомобиля?</span>
                         <span class="toggle-icon">▼</span>
                     </div>
                     <div class="faq-answer">
-                        Полная мойка автомобиля занимает от 1 до 2 часов, в зависимости от степени загрязнения и выбранных дополнительных услуг.
+                        Время обработки зависит от выбранных услуг и состояния автомобиля. В среднем, полная обработка занимает от 4 до 8 часов.
                     </div>
                 </div>
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>Какие защитные покрытия вы используете?</span>
+                        <span>Какие материалы вы используете?</span>
                         <span class="toggle-icon">▼</span>
                     </div>
                     <div class="faq-answer">
-                        Мы работаем с проверенными производителями защитных покрытий, включая керамические покрытия, жидкое стекло и антигравийные пленки.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Как часто нужно проводить химчистку салона?</span>
-                        <span class="toggle-icon">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        Рекомендуется проводить химчистку салона каждые 6-12 месяцев, в зависимости от интенсивности использования автомобиля.
+                        Мы используем только профессиональные материалы и оборудование от ведущих мировых производителей, таких как 3M, Menzerna, Koch Chemie и других.
                     </div>
                 </div>
                 <div class="faq-item">
@@ -121,7 +118,79 @@
                         <span class="toggle-icon">▼</span>
                     </div>
                     <div class="faq-answer">
-                        Да, мы предоставляем гарантию на все наши услуги. Срок гарантии зависит от типа услуги и используемых материалов.
+                        Да, мы предоставляем гарантию на все наши услуги. Срок гарантии зависит от конкретной услуги и указывается в договоре.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как записаться на услуги?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Вы можете записаться на услуги через наш сайт, по телефону или лично посетив наш сервис. Мы рекомендуем предварительную запись для лучшего планирования времени.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как часто нужно проводить полировку кузова?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Рекомендуется проводить полировку кузова 1-2 раза в год, в зависимости от условий эксплуатации автомобиля. Это поможет сохранить лакокрасочное покрытие и защитить кузов от внешних воздействий.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какие преимущества керамического покрытия?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Керамическое покрытие обеспечивает долговременную защиту кузова (до 2-3 лет), улучшает блеск, облегчает мойку автомобиля, защищает от УФ-лучей, химических веществ и мелких царапин.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как ухаживать за салоном после химчистки?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        После химчистки рекомендуется избегать попадания влаги в салон в течение 24 часов, регулярно проветривать автомобиль, использовать специальные средства для ухода за салоном и избегать прямых солнечных лучей.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Можно ли проводить детейлинг зимой?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Да, детейлинг можно проводить в любое время года. Зимой особенно важно защитить кузов от реагентов и соли. Мы используем специальные технологии и материалы, адаптированные для зимних условий.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как подготовить автомобиль к детейлингу?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Перед визитом рекомендуется убрать личные вещи из салона и багажника, снять коврики, если планируется их обработка. Желательно приехать на чистом автомобиле, но это не обязательно - мы проведем предварительную мойку.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Какие зоны автомобиля требуют особого внимания?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Особого внимания требуют: передняя часть кузова (капот, бампер, фары), дверные ручки, пороги, колесные арки, а также салонные элементы, которые чаще всего контактируют с руками (руль, рычаг КПП, кнопки управления).
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Как часто нужно обновлять защитное покрытие?</span>
+                        <span class="toggle-icon">▼</span>
+                    </div>
+                    <div class="faq-answer">
+                        Срок обновления зависит от типа покрытия: восковое покрытие - каждые 2-3 месяца, жидкое стекло - каждые 6-12 месяцев, керамическое покрытие - каждые 2-3 года. Также срок зависит от условий эксплуатации автомобиля.
                     </div>
                 </div>
             </div>
@@ -130,7 +199,9 @@
     <footer>
         <p>&copy; 2025 Автосервис. Все права защищены.</p>
     </footer>
+    <script src="script.js"></script>
     <script>
+        // FAQ функционал
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
             

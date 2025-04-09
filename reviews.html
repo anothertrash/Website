@@ -6,11 +6,10 @@
     <title>Отзывы</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-wrapper">
     <header>
         <h1>Добро пожаловать на наш сайт</h1>
     </header>
-
     <nav>
         <ul>
             <li><a href="home.html">Главная</a></li>
@@ -29,14 +28,97 @@
     </nav>
 
     <main>
-        <section>
-            <h2>Отзывы Клиентов</h2>
-            <p>Прочитайте, что говорят наши довольные клиенты о наших услугах.</p>
-        </section>
+        <div class="reviews-wrapper">
+            <section class="reviews-grid">
+                <!-- Первая порция отзывов -->
+                <div class="review-card">
+                    <img class="avatar" src="https://avatars.mds.yandex.net/get-yapic/12345/sample-avatar/islands-middle" alt="Антон">
+                    <div class="review-content">
+                        <h3>Смирнов Антон</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <span class="date">24 июля</span>
+                        <p>Всем рекомендую! Делал полировку, результатом доволен максимально!</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img class="avatar" src="https://avatars.mds.yandex.net/get-yapic/12345/sample-avatar/islands-middle" alt="Егор">
+                    <div class="review-content">
+                        <h3>Ефименков Егор</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <span class="date">15 апреля</span>
+                        <p>Парни - мастера своего дела. Очень качественное, аккуратное выполнение работ! Моя ВАЗ 2115 выглядит огонь!!</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img class="avatar" src="https://avatars.mds.yandex.net/get-yapic/12345/sample-avatar/islands-middle" alt="Даня.">
+                    <div class="review-content">
+                        <h3>Даниил Б.</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <span class="date">21 января</span>
+                        <p>Отличное место, чтобы привести в порядок свой автомобиль. После химчистки и полировки не смог узнать свою машину. Стала как новая, никаких следов эксплуатации.</p>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <img class="avatar" src="https://avatars.mds.yandex.net/get-yapic/12345/sample-avatar/islands-middle" alt="Дед Мороз">
+                    <div class="review-content">
+                        <h3>Дед Мороз</h3>
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <span class="date">1 января</span>
+                        <p>Очень тяжело найти студию детейлинга, где смогут помыть мои сани. Спасибо!</p>
+                    </div>
+                </div>
+
+                <div id="hidden-reviews" class="hidden-reviews">
+                    <div class="review-card">
+                        <img class="avatar" src="https://avatars.mds.yandex.net/get-yapic/12345/sample-avatar/islands-middle" alt="Гринч">
+                        <div class="review-content">
+                            <h3>Гринч</h3>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="date">31 декабря</span>
+                            <p>Очень довольна качеством работы, машина стала как новая, большое спасибо, могу портить всем праздник!</p>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <img class="avatar" src="https://avatars.mds.yandex.net/get-yapic/12345/sample-avatar/islands-middle" alt="Супермен">
+                        <div class="review-content">
+                            <h3>Супермен</h3>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                            <span class="date">3 июня</span>
+                            <p>Прекрасное обслуживание и отличная работа. Помыли мою приору, выглядит как новая. Рекомендую!</p>
+                        </div>
+                    </div>
+                </div>
+                <button id="show-more-btn">Показать еще</button>
+            </section>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 LuxuryDetail. Все права защищены.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const showMoreBtn = document.getElementById('show-more-btn');
+    const hiddenReviews = document.querySelector('.hidden-reviews');
+    showMoreBtn.addEventListener('click', function() {
+        hiddenReviews.classList.toggle('show');
+        if (hiddenReviews.classList.contains('show')) {
+            showMoreBtn.textContent = 'Скрыть';
+            const hiddenCards = hiddenReviews.querySelectorAll('.review-card');
+            hiddenCards.forEach((card, index) => {
+                card.style.animation = 'fadeInUp 0.6s ease forwards';
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        } else {
+            showMoreBtn.textContent = 'Показать еще';
+        }
+    });
+});
+    </script>
 </body>
-</html> 
+</html>

@@ -153,27 +153,24 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Добро пожаловать на наш сайт</h1>
-        <nav>
-            <ul>
-                <li><a href="home.html">Главная</a></li>
-                <li><a href="about.html">О Компании</a></li>
-                <li><a href="services.html">Услуги</a></li>
-                <li><a href="reviews.html">Отзывы</a></li>
-                <li><a href="portfolio.html">Портфолио</a></li>
-                <li class="dropdown">
-                    <a href="#support">Поддержка</a>
-                    <div class="dropdown-content">
-                        <a href="faq.html">FAQ</a>
-                        <a href="contact.html">Контакты</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Главная</a></li>
+            <li><a href="about.html">О компании</a></li>
+            <li><a href="services.html">Услуги</a></li>
+            <li><a href="portfolio.html">Портфолио</a></li>
+            <li><a href="reviews.html">Отзывы</a></li>
+            <li class="dropdown">
+                <a href="#">Поддержка</a>
+                <div class="dropdown-content">
+                    <a href="contact.html">Контакты</a>
+                    <a href="faq.html">FAQ</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
 
-    <button class="sidebar-toggle" id="sidebarToggle">☰ Меню</button>
+    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
     <main>
 
         <aside id="servicesSidebar" class="services-sidebar">
@@ -233,34 +230,35 @@
     <footer>
         <p>&copy; 2025 LuxuryDetail. Все права защищены.</p>
     </footer>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const sidebarToggle = document.getElementById('sidebarToggle');
-                const servicesSidebar = document.querySelector('.services-sidebar');
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const servicesSidebar = document.querySelector('.services-sidebar');
 
-                sidebarToggle.addEventListener('click', function() {
-                    servicesSidebar.classList.toggle('active');
+            sidebarToggle.addEventListener('click', function() {
+                servicesSidebar.classList.toggle('active');
 
-                    if (servicesSidebar.classList.contains('active')) {
-                        sidebarToggle.textContent = '✕ Закрыть';
-                        sidebarToggle.style.left = '210px';
-                    } else {
-                        sidebarToggle.textContent = '☰ Меню';
+                if (servicesSidebar.classList.contains('active')) {
+                    sidebarToggle.textContent = '✕ Закрыть';
+                    sidebarToggle.style.left = '210px';
+                } else {
+                    sidebarToggle.textContent = '☰';
+                    sidebarToggle.style.left = '10px';
+                }
+            });
+
+            const sidebarLinks = document.querySelectorAll('.services-sidebar a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        servicesSidebar.classList.remove('active');
+                        sidebarToggle.textContent = '☰';
                         sidebarToggle.style.left = '10px';
                     }
                 });
-
-                const sidebarLinks = document.querySelectorAll('.services-sidebar a');
-                sidebarLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        if (window.innerWidth <= 768) {
-                            servicesSidebar.classList.remove('active');
-                            sidebarToggle.textContent = '☰ Меню';
-                            sidebarToggle.style.left = '10px';
-                        }
-                    });
-                });
             });
-        </script>
+        });
+    </script>
 </body>
 </html>
