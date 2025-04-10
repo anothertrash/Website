@@ -38,7 +38,6 @@ header {
     display: none;
 }
 
-/* Основные стили навигации */
 nav {
     position: fixed;
     top: 0;
@@ -107,7 +106,6 @@ nav ul li a:hover::after {
     transform-origin: left;
 }
 
-/* Выпадающее меню */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -160,12 +158,11 @@ footer {
     background-color: #2c3e50;
     color: white;
     text-align: center;
-    padding: 1rem;
-    bottom: 0;
-    width: 100%;
+    padding: 10px;
+    /* bottom: 0;
+    width: 100%; */
 }
 
-/* Мобильные стили */
 @media screen and (max-width: 768px) {
     body {
         padding-top: 160px; /* Увеличиваем отступ для мобильного меню */
@@ -212,7 +209,18 @@ footer {
     main {
         margin-top: 100px;
         max-width: 90%;
+        flex: 1;
     }
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+      
 
     section {
         padding: 1rem;
@@ -220,11 +228,10 @@ footer {
     }
 
     footer {
-        position: relative; /* Футер больше не фиксированный */
+        position: relative; 
         margin-top: 2rem;
     }
 
-    /* Стили для FAQ на мобильных устройствах */
     .faq-container {
         padding: 0.5rem;
     }
@@ -254,7 +261,6 @@ footer {
     }
 }
 
-/* Стили для очень маленьких экранов */
 @media screen and (max-width: 480px) {
     body {
         padding-top: 140px;
@@ -287,7 +293,6 @@ footer {
     }
 }
 
-/* Стили для FAQ */
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
@@ -451,24 +456,24 @@ footer {
 
 @media (max-width: 1200px) {
     .portfolio_div > div {
-        width: calc(33.33% - 20px); /* 3 колонки */
+        width: calc(33.33% - 20px);
     }
 }
 
 @media (max-width: 768px) {
     .portfolio_div > div {
-        width: calc(50% - 20px); /* 2 колонки */
+        width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .portfolio_div > div {
-        width: 100%; /* 1 колонка */
+        width: 100%;
     }
 }
 
-/* Футер */
 footer {
+    height: 60px;
     background-color: #333;
     color: white;
     text-align: center;
@@ -477,8 +482,8 @@ footer {
     font-family: 'Roboto', sans-serif;
 }
 
-
 body {
+    height: calc(100vh - 140px);
     background-color: #1c1e22;
     font-family: 'Arial', sans-serif;
 }
