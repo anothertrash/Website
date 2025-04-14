@@ -38,7 +38,6 @@ header {
     display: none;
 }
 
-/* Основные стили навигации */
 nav {
     position: fixed;
     top: 0;
@@ -107,7 +106,6 @@ nav ul li a:hover::after {
     transform-origin: left;
 }
 
-/* Выпадающее меню */
 .dropdown-content {
     display: none;
     position: absolute;
@@ -165,10 +163,9 @@ footer {
     width: 100%;
 }
 
-/* Мобильные стили */
 @media screen and (max-width: 768px) {
     body {
-        padding-top: 160px; /* Увеличиваем отступ для мобильного меню */
+        padding-top: 160px;
     }
 
     header {
@@ -180,7 +177,7 @@ footer {
     }
 
     header h1 {
-        font-size: 1.5rem; /* Уменьшаем размер заголовка */
+        font-size: 1.5rem;
     }
 
     nav ul {
@@ -220,11 +217,10 @@ footer {
     }
 
     footer {
-        position: relative; /* Футер больше не фиксированный */
+        position: relative;
         margin-top: 2rem;
     }
 
-    /* Стили для FAQ на мобильных устройствах */
     .faq-container {
         padding: 0.5rem;
     }
@@ -254,7 +250,6 @@ footer {
     }
 }
 
-/* Стили для очень маленьких экранов */
 @media screen and (max-width: 480px) {
     body {
         padding-top: 140px;
@@ -287,7 +282,6 @@ footer {
     }
 }
 
-/* Стили для FAQ */
 .faq-container {
     max-width: 800px;
     margin: 0 auto;
@@ -467,7 +461,6 @@ footer {
     }
 }
 
-/* Футер */
 footer {
     background-color: #333;
     color: white;

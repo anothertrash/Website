@@ -3,37 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
+    <title>LuxuryDetail - Детейлинг для вашего авто</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Навигация */
+        nav {
+            background-color: #040805;
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #45a049;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            display: block;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Основной контент */
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Блок о компании */
+        .about-section {
+            background-color: #f8f9fa;
+            padding: 50px 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        
+        .about-section h1 {
+            text-align: center;
+            color: #040805;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        
+        .about-section p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        /* Форма заявки */
+        .application-form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .application-form h1 {
+            text-align: center;
+            color: #040805;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .form-group input, 
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, 
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #df1212;
+            box-shadow: 0 0 0 3px rgba(69,160,73,0.2);
+            outline: none;
+        }
+        
+        /* Стилизация select */
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 15px;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+        
+        .phone-hint {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .submit-btn {
+            background-color: #040805;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #df1212;
+            transform: translateY(-2px);
+        }
+        
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 13px;
+            color: #777;
+            text-align: center;
+            line-height: 1.5;
+        }
+        
+        /* Кнопки "Оставить заявку" */
+        .request-btn {
+            background-color: #df1212;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        .request-btn:hover {
+            background-color: #df1212;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Футер */
+        footer {
+            background-color: #040805;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        /* Якорная ссылка */
+        #application-form {
+            scroll-margin-top: 80px;
+        }
+    </style>
 </head>
 <body>
     <nav>
         <ul>
             <li><a href="home.html">Главная</a></li>
-            <li><a href="about.html">О компании</a></li>
-            <li><a href="services.html">Услуги</a></li>
+            <li><a href="services.html">Услуги и цены</a></li>
             <li><a href="portfolio.html">Портфолио</a></li>
-            <li><a href="reviews.html">Отзывы</a></li>
-            <li class="dropdown">
-                <a href="#">Поддержка</a>
-                <div class="dropdown-content">
-                    <a href="contact.html">Контакты</a>
-                    <a href="faq.html">FAQ</a>
-                </div>
-            </li>
+            <li><a href="about.html">О нас</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+            <li><a href="tel:+74994555565">+7 499 455-55-65</a></li>
+            <li><a href="#application-form" class="request-btn">Оставить заявку</a></li>
         </ul>
     </nav>
 
     <main>
-        <section>
-            <h2>Главная</h2>
-            <p>Добро пожаловать на наш сайт! Здесь вы найдете всю необходимую информацию о нашей компании и наших услугах.</p>
+        <!-- Блок о компании -->
+        <section class="about-section">
+            <h1>Мы — команда опытных профессионалов, предлагаем вам высококачественные услуги детейлинга для вашего автомобиля</h1>
+            
+            <p>Наше мастерство и страсть к деталям позволяют нам достичь невероятных результатов, которые оставят вас в полном восторге.</p>
+            
+            <p>Одно из наших преимуществ — индивидуальный подход как к каждому клиенту, так и к каждому авто. Прежде чем приступить к работе, мы детально обговариваем все нюансы с владельцем, составляем чёткий план работ и всегда остаёмся на связи.</p>
+            
+            <p>Мы применяем в работе только качественное и многократно зарекомендовавшее себя оборудование и составы от лучших мировых производителей.</p>
+            
+            <p>Чтобы предложить вам самые передовые решения по детейлингу, мы постоянно развиваемся, экспериментируем с новыми технологиями и составами, внимательно следим за качеством выполнения задач. Список наших возможностей и услуг растёт с каждым днём.</p>
+            
+            <p>Наша цель — оказание услуг высочайшего качества на максимально выгодных условиях для вас!</p>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#application-form" class="request-btn">Начни Detailing с нами</a>
+            </div>
+        </section>
+
+        <!-- Форма заявки с якорем -->
+        <section id="application-form" class="application-form">
+            <h1>Оставьте заявку на любую услугу</h1>
+            
+            <form id="applicationForm">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" placeholder="Напишите ваше имя" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" placeholder="+7 (999) 999-99-99" required>
+                    <p class="phone-hint">Ваша помощь телефона:</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">Услуга</label>
+                    <select id="service" required>
+                        <option value="" disabled selected>Выберите услугу</option>
+                        <option value="consultation">Консультация</option>
+                        <option value="dry cleaning">Химчистка</option>
+                        <option value="bodywork">Кузовные работы</option>
+                        <option value="detailing">Детейлинг</option>
+                        <option value="polishing">Полировка</option>
+                        <option value="coating">Защитное покрытие</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Сообщение</label>
+                    <textarea id="message" rows="4" placeholder="Опишите вашу заявку"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Оставить заявку</button>
+                
+                <p class="disclaimer">
+                    Напомните новому сотрудничеству, которому обусловлены изменения по предоставлению данных для получения функций персональных данных.
+                </p>
+            </form>
         </section>
     </main>
 
     <footer>
+        <p>Смоленск, ул. Пржевальского, 4</p>
         <p>&copy; 2025 LuxuryDetail. Все права защищены.</p>
     </footer>
+    
     <script src="script.js"></script>
+    <script>
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && phone && service) {
+                alert(`Спасибо, ${name}! Ваша заявка на "${service}" принята. Мы свяжемся с вами по номеру ${phone}.`);
+                this.reset();
+            } else {
+                alert('Пожалуйста, заполните все обязательные поля!');
+            }
+        });
+        
+        // Плавная прокрутка к форме
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-</html> 
+</html>
