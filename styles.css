@@ -158,9 +158,9 @@ footer {
     background-color: #2c3e50;
     color: white;
     text-align: center;
-    padding: 1rem;
-    bottom: 0;
-    width: 100%;
+    padding: 10px;
+    /* bottom: 0;
+    width: 100%; */
 }
 
 @media screen and (max-width: 768px) {
@@ -209,7 +209,18 @@ footer {
     main {
         margin-top: 100px;
         max-width: 90%;
+        flex: 1;
     }
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+      
 
     section {
         padding: 1rem;
@@ -217,7 +228,7 @@ footer {
     }
 
     footer {
-        position: relative;
+        position: relative; 
         margin-top: 2rem;
     }
 
@@ -445,23 +456,24 @@ footer {
 
 @media (max-width: 1200px) {
     .portfolio_div > div {
-        width: calc(33.33% - 20px); /* 3 колонки */
+        width: calc(33.33% - 20px);
     }
 }
 
 @media (max-width: 768px) {
     .portfolio_div > div {
-        width: calc(50% - 20px); /* 2 колонки */
+        width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .portfolio_div > div {
-        width: 100%; /* 1 колонка */
+        width: 100%;
     }
 }
 
 footer {
+    height: 60px;
     background-color: #333;
     color: white;
     text-align: center;
@@ -470,8 +482,8 @@ footer {
     font-family: 'Roboto', sans-serif;
 }
 
-
 body {
+    height: calc(100vh - 140px);
     background-color: #1c1e22;
     font-family: 'Arial', sans-serif;
 }
